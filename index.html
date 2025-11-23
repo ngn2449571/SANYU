@@ -40,7 +40,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.95);
       backdrop-filter: blur(8px);
       color: #e5e7eb;
       padding: 10px 24px;
@@ -58,6 +58,12 @@
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
     }
 
     nav a {
@@ -102,7 +108,6 @@
       background-image:
         linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.3)),
         url("road.jpg");
-      /* road.jpg を index.html と同じフォルダか /images 配下などに置く */
       background-size: cover;
       background-position: center;
       transform: scale(1.02);
@@ -185,7 +190,7 @@
       font-size: 14px;
     }
 
-    /* 強み（CSSは残してるけど使われてないだけ） */
+    /* 強み（CSSは残ってるだけ） */
 
     .strengths {
       display: grid;
@@ -278,22 +283,70 @@
       padding: 16px 0 24px;
     }
 
-    @media (min-width: 768px) {
+    /* ここからスマホ用レイアウト調整 */
+    @media (max-width: 768px) {
+      header {
+        padding: 8px 16px;
+      }
+
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .logo {
+        font-size: 16px;
+        letter-spacing: 0.04em;
+      }
+
+      nav {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+      }
+
+      nav a {
+        font-size: 13px;
+        margin: 0 12px 0 0;
+      }
+
       .hero {
-        height: 360px;
-        margin: 0 0 32px;
+        height: 260px;
+        margin: 0 -16px 24px;
+      }
+
+      .hero-inner {
+        padding: 28px 18px;
+      }
+
+      .hero-copy-small {
+        font-size: 12px;
       }
 
       .hero-title {
-        font-size: 32px;
+        font-size: 22px;
       }
 
-      main {
-        padding-bottom: 56px;
+      .hero-lead {
+        font-size: 13px;
+        max-width: 100%;
+      }
+
+      .hero-info {
+        font-size: 11px;
       }
 
       section {
-        padding: 24px 20px;
+        padding: 16px 12px;
+        margin-bottom: 16px;
+      }
+
+      dt,
+      dd,
+      ul {
+        font-size: 13px;
       }
     }
   </style>
@@ -340,7 +393,6 @@
         <dt>連絡先</dt>
         <dd><a href="tel:090-3148-2313">090-3148-2313</a></dd>
       </dl>
-      <!-- strengths の <ul> ブロックは削除済み -->
     </section>
 
     <section id="services">
